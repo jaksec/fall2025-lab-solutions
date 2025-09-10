@@ -11,7 +11,11 @@ int main() {
     printf("How many containers are you buying?\n");
     scanf("%d", &numContainers);
 
-    totalCost = containerCost * ((numContainers/2) + (numContainers%2));
+    if (numContainers % 2 == 0) {
+        totalCost = containerCost * (numContainers / 2);
+    } else {
+        totalCost = containerCost * ((numContainers / 2) + 1);
+    }
 
     printf("The total cost is: $%.2lf\n", totalCost);
 
