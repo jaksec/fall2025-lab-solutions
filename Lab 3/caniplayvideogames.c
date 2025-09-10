@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-
+    
     int currentHour, currentMinute;
     int homeworkDeadlineHour, homeworkDeadlineMinute;
     int videoGameDuration, homeworkDuration;
@@ -15,15 +15,20 @@ int main() {
     printf("Please enter the hour and minute the homework is due.\n");
     scanf("%d %d", &homeworkDeadlineHour, &homeworkDeadlineMinute);
 
+    // get everything into minutes for easier comparison
     int currentTimeInMinutes = (currentHour * 60) + currentMinute;
     int homeworkDeadlineInMinutes = (homeworkDeadlineHour * 60) + homeworkDeadlineMinute;
 
+    // total time needed to do both activities and our available time
     int totalElapsedTime = videoGameDuration + homeworkDuration;
     int totalAvailableTime = homeworkDeadlineInMinutes - currentTimeInMinutes;
 
+    // compare the two times and print the appropriate message
     if (totalElapsedTime <= totalAvailableTime) {
         printf("Great, you can play the game and still finish your homework.\n");
     } else {
         printf("Sorry, no game for you. Just do your homework.\n");
     }
+
+    return 0;
 }
